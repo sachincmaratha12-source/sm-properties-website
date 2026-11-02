@@ -1,48 +1,66 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import csv
 import os
 from datetime import datetime
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 app = Flask(__name__)
-
 CORS(app)
 
+# Enquiry storage
+DATA_FOLDER = Path(os.environ.get("DATA_DIR", BASE_DIR / "data"))
+DATA_FOLDER.mkdir(parents=True, exist_ok=True)
+CSV_FILE = DATA_FOLDER / "enquiries.csv"
 
-# =========================================================
-# DATA FOLDER
-# =========================================================
+# Website pages allowed to be served
+ALLOWED_PAGES = {
+    "index.html",
+    "about.html",
+    "projects.html",
+    "contact.html",
+    "northern-lights.html",
+    "trees-and-tandem.html",
+    "evergreen-park.html",
+    "aveline.html",
+    "nambiar-district-25.html",
+    "assetz-niwa-and-neo.html"
+}
 
-DATA_FOLDER = "data"
-CSV_FILE = os.path.join(DATA_FOLDER, "enquiries.csv")
-
-os.makedirs(DATA_FOLDER, exist_ok=True)
-
-
-# =========================================================
-# HOME
-# =========================================================
 
 @app.route("/")
 def home():
-    return "SM Properties backend is working!"
+    return send_from_directory(BASE_DIR, "index.html")
 
 
-# =========================================================
-# SUBMIT ENQUIRY
-# =========================================================
+@app.route("/<path:filename>")
+def website_files(filename):
+    # Allow only website pages and public asset folders
+    if filename in ALLOWED_PAGES:
+        return send_from_directory(BASE_DIR, filename)
+
+    if filename.startswith(("css/", "js/", "images/")):
+        return send_from_directory(BASE_DIR, filename)
+
+    return jsonify({"message": "Page not found"}), 404
+
 
 @app.route("/submit-enquiry", methods=["POST"])
 def submit_enquiry():
+    data = request.get_json(silent=True) or {}
 
-    data = request.get_json() or {}
+    def get_value(field):
+        value = data.get(field, "")
+        return str(value).strip() if value is not None else ""
 
-    name = data.get("name", "").strip()
-    phone = data.get("phone", "").strip()
-    email = data.get("email", "").strip()
-    property_type = data.get("property_type", "").strip()
-    location = data.get("location", "").strip()
-    message = data.get("message", "").strip()
+    name = get_value("name")
+    phone = get_value("phone")
+    email = get_value("email")
+    property_type = get_value("property_type")
+    location = get_value("location")
+    message = get_value("message")
 
     if not name or not phone:
         return jsonify({
@@ -50,22 +68,10 @@ def submit_enquiry():
             "message": "Name and phone number are required."
         }), 400
 
+    submitted_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    file_exists = CSV_FILE.exists()
 
-    submitted_at = datetime.now().strftime(
-        "%Y-%m-%d %H:%M:%S"
-    )
-
-
-    file_exists = os.path.exists(CSV_FILE)
-
-
-    with open(
-        CSV_FILE,
-        mode="a",
-        newline="",
-        encoding="utf-8"
-    ) as file:
-
+    with open(CSV_FILE, "a", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
 
         if not file_exists:
@@ -89,17 +95,7 @@ def submit_enquiry():
             message
         ])
 
-
-    print("\n===== NEW SM PROPERTIES ENQUIRY =====")
-    print(f"Date & Time: {submitted_at}")
-    print(f"Name: {name}")
-    print(f"Phone: {phone}")
-    print(f"Email: {email}")
-    print(f"Property Type: {property_type}")
-    print(f"Location: {location}")
-    print(f"Message: {message}")
-    print("=====================================\n")
-
+    print(f"New enquiry received: {name} - {phone}")
 
     return jsonify({
         "success": True,
@@ -107,12 +103,5 @@ def submit_enquiry():
     })
 
 
-# =========================================================
-# START SERVER
-# =========================================================
-
 if __name__ == "__main__":
-    app.run(
-        debug=True,
-        port=5000
-    )
+    app.run(debug=True, port=5000)
