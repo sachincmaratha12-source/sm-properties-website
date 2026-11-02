@@ -1,8 +1,8 @@
+
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import csv
 import os
-from datetime import datetime
+import requests
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -10,12 +10,8 @@ BASE_DIR = Path(__file__).resolve().parent
 app = Flask(__name__)
 CORS(app)
 
-# Enquiry storage
-DATA_FOLDER = Path(os.environ.get("DATA_DIR", BASE_DIR / "data"))
-DATA_FOLDER.mkdir(parents=True, exist_ok=True)
-CSV_FILE = DATA_FOLDER / "enquiries.csv"
+GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
-# Website pages allowed to be served
 ALLOWED_PAGES = {
     "index.html",
     "about.html",
@@ -37,7 +33,6 @@ def home():
 
 @app.route("/<path:filename>")
 def website_files(filename):
-    # Allow only website pages and public asset folders
     if filename in ALLOWED_PAGES:
         return send_from_directory(BASE_DIR, filename)
 
@@ -51,16 +46,8 @@ def website_files(filename):
 def submit_enquiry():
     data = request.get_json(silent=True) or {}
 
-    def get_value(field):
-        value = data.get(field, "")
-        return str(value).strip() if value is not None else ""
-
-    name = get_value("name")
-    phone = get_value("phone")
-    email = get_value("email")
-    property_type = get_value("property_type")
-    location = get_value("location")
-    message = get_value("message")
+    name = str(data.get("name") or "").strip()
+    phone = str(data.get("phone") or "").strip()
 
     if not name or not phone:
         return jsonify({
@@ -68,39 +55,43 @@ def submit_enquiry():
             "message": "Name and phone number are required."
         }), 400
 
-    submitted_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    file_exists = CSV_FILE.exists()
+    if not GOOGLE_SCRIPT_URL:
+        return jsonify({
+            "success": False,
+            "message": "Enquiry service is not configured."
+        }), 500
 
-    with open(CSV_FILE, "a", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
+    try:
+        response = requests.post(
+            GOOGLE_SCRIPT_URL,
+            json={
+                "name": name,
+                "phone": phone,
+                "email": data.get("email", ""),
+                "property_type": data.get("property_type", ""),
+                "location": data.get("location", ""),
+                "message": data.get("message", "")
+            },
+            timeout=30
+        )
 
-        if not file_exists:
-            writer.writerow([
-                "Date & Time",
-                "Name",
-                "Phone",
-                "Email",
-                "Property Type",
-                "Preferred Location",
-                "Message"
-            ])
+        response.raise_for_status()
+        result = response.json()
 
-        writer.writerow([
-            submitted_at,
-            name,
-            phone,
-            email,
-            property_type,
-            location,
-            message
-        ])
+        if not result.get("success"):
+            raise Exception("Google Sheets did not confirm the enquiry.")
 
-    print(f"New enquiry received: {name} - {phone}")
+        return jsonify({
+            "success": True,
+            "message": "Thank you. Your enquiry has been received."
+        })
 
-    return jsonify({
-        "success": True,
-        "message": "Thank you. Your enquiry has been received."
-    })
+    except Exception as error:
+        app.logger.exception("Enquiry submission failed")
+        return jsonify({
+            "success": False,
+            "message": "Unable to submit your enquiry. Please try again."
+        }), 502
 
 
 if __name__ == "__main__":
