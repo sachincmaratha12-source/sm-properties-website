@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assetz KVN NIWA & NEO | SM Properties</title>
+
+    <meta name="description"
+        content="Explore Assetz KVN NIWA & NEO at Aerospace Park, Bengaluru. Discover 3 BHK homes, amenities, location and pricing with SM Properties.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project.css">
+
+    <style>
+        .project-extra-section {
+            padding: 90px 0;
+        }
+
+        .project-extra-section.alt {
+            background: var(--off-white);
+        }
+
+        .project-section-intro {
+            max-width: 760px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .project-section-intro h2 {
+            color: var(--navy);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(34px, 4vw, 48px);
+            margin-bottom: 15px;
+        }
+
+        .project-section-intro p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .project-nearby-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .nearby-item {
+            padding: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .nearby-item span {
+            display: block;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .nearby-item strong {
+            color: var(--navy);
+            font-size: 19px;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .amenity-item {
+            padding: 20px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .amenity-item::before {
+            content: "✓";
+            color: var(--gold);
+            margin-right: 9px;
+            font-weight: 700;
+        }
+
+        .specification-heading {
+            margin: 45px 0 20px;
+            color: var(--navy);
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+        }
+
+        .pricing-table-wrap {
+            overflow-x: auto;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 420px;
+        }
+
+        .pricing-table th {
+            padding: 18px;
+            background: var(--navy);
+            color: var(--white);
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .pricing-table td {
+            padding: 20px 18px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .pricing-table td strong {
+            color: var(--navy);
+        }
+
+        .pricing-note {
+            margin-top: 16px;
+            color: var(--text-light);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .developer-information-card {
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .developer-information-card img {
+            width: auto;
+            max-width: 230px;
+            height: auto;
+            max-height: 110px;
+            object-fit: contain;
+        }
+
+        .project-enquiry-section {
+            padding: 75px 0;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .project-enquiry-section h2 {
+            margin-bottom: 14px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(30px, 4vw, 44px);
+        }
+
+        .project-enquiry-section p {
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .project-enquiry-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .project-enquiry-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 24px;
+            background: var(--gold);
+            color: var(--navy-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .project-enquiry-buttons a.secondary {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.7);
+            color: var(--white);
+        }
+
+        @media (max-width: 760px) {
+            .project-extra-section {
+                padding: 65px 0;
+            }
+
+            .project-nearby-list,
+            .amenities-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .developer-information-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-nearby-list,
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="project-detail-page">
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="SM Properties">
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="projects.html">Projects</a>
+                <a href="index.html#why-sm">Why Us</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#enquire" class="header-button">
+                    Enquire Now
+                </a>
+            </div>
+
+            <button class="mobile-menu-button" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+        <nav class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#why-sm">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#enquire">Enquire Now</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- PROJECT HERO -->
+
+        <section class="project-detail-hero">
+
+            <div class="container project-detail-hero-content">
+
+                <div class="project-detail-image">
+
+                    <img
+                        src="images/projects/assetz-niwa-and-neo.jpg"
+                        alt="Assetz KVN NIWA and NEO"
+                    >
+
+                </div>
+
+
+                <div class="project-detail-intro">
+
+                    <p class="section-subtitle">
+                        Assetz
+                    </p>
+
+                    <h1>
+                        Assetz KVN NIWA & NEO
+                    </h1>
+
+                    <p class="project-detail-location">
+                        Gummanahalli, Aerospace Park, North Bengaluru
+                    </p>
+
+                    <p>
+                        Discover thoughtfully designed 3 BHK residences
+                        at Assetz KVN NIWA & NEO, a residential development
+                        located in the Aerospace Park corridor of Bengaluru.
+                        The project combines contemporary residences with
+                        recreational and lifestyle amenities.
+                    </p>
+
+                    <div class="project-detail-meta">
+
+    <span>3 BHK</span>
+
+    <span>1,543–1,829 Sq.Ft.</span>
+
+    <span>₹1.75 Cr Onwards</span>
+
+</div>
+                    <div class="project-detail-buttons">
+
+                        <a href="#enquire" class="primary-button">
+                            Enquire Now
+                        </a>
+
+                        <a
+                            href="https://wa.me/918618633659?text=Hi%2C%20I%20am%20interested%20in%20Assetz%20KVN%20NIWA%20%26%20NEO."
+                            target="_blank"
+                            rel="noopener"
+                            class="secondary-project-button"
+                        >
+                            WhatsApp Us
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OVERVIEW -->
+
+        <section class="project-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-subtitle">Project Overview</p>
+
+                    <h2>
+                        About NIWA & NEO
+                    </h2>
+
+                    <p>
+                        Key project information for Assetz KVN NIWA & NEO.
+                    </p>
+
+                </div>
+
+
+                <div class="project-overview-grid">
+
+                    <div class="project-overview-item">
+                        <span>Developer</span>
+                        <strong>Assetz</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>Land Parcel</span>
+                        <strong>5 Acres</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>Towers</span>
+                        <strong>3 Towers</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>Structure</span>
+                        <strong>2B + G + 29 Floors</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>Configuration</span>
+                        <strong>3 BHK</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>Built-up Area</span>
+                        <strong>1,543–1,829 Sq.Ft.</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>Possession</span>
+                        <strong>September 2031</strong>
+                    </div>
+
+                    <div class="project-overview-item">
+                        <span>RERA Number</span>
+                        <strong>PRM/KA/RERA/1251/472/PR/220726/008831</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOCATION -->
+
+        <section class="project-extra-section alt">
+
+            <div class="container">
+
+                <div class="project-section-intro">
+
+                    <p class="section-subtitle">Project Location</p>
+
+                    <h2>Location & Connectivity</h2>
+
+                    <p>
+                        Assetz KVN NIWA & NEO is located on Gummanahalli Road,
+                        Gummanahalli, Aerospace Park, Bengaluru.
+                    </p>
+
+                </div>
+
+
+                <div class="project-nearby-list">
+
+                    <div class="nearby-item">
+                        <span>Nearby Landmark</span>
+                        <strong>Bagalur Police Station</strong>
+                        <span>2.4 km</span>
+                    </div>
+
+                    <div class="nearby-item">
+                        <span>Nearby Road</span>
+                        <strong>Budigere Main Road</strong>
+                        <span>3.0 km</span>
+                    </div>
+
+                    <div class="nearby-item">
+                        <span>Nearby Road</span>
+                        <strong>BK Halli Road</strong>
+                        <span>4.4 km</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AMENITIES -->
+
+        <section class="project-extra-section">
+
+            <div class="container">
+
+                <div class="project-section-intro">
+
+                    <p class="section-subtitle">Lifestyle & Comfort</p>
+
+                    <h2>Project Amenities</h2>
+
+                    <p>
+                        The project features recreational, fitness
+                        and community facilities.
+                    </p>
+
+                </div>
+
+
+                <div class="amenities-grid">
+
+                    <div class="amenity-item">Club House</div>
+                    <div class="amenity-item">Kids Play Area</div>
+                    <div class="amenity-item">Outdoor Gym</div>
+                    <div class="amenity-item">Tennis Court</div>
+                    <div class="amenity-item">Steam Room</div>
+                    <div class="amenity-item">Box Cricket</div>
+                    <div class="amenity-item">Yoga Zone</div>
+                    <div class="amenity-item">Banquet Hall</div>
+                    <div class="amenity-item">Futsal Court</div>
+                    <div class="amenity-item">Pet Park</div>
+                    <div class="amenity-item">Badminton Court</div>
+
+                </div>
+
+
+                <h3 class="specification-heading">
+                    Internal Specifications
+                </h3>
+
+                <div class="amenities-grid">
+
+                    <div class="amenity-item">Vitrified Tiles</div>
+                    <div class="amenity-item">Granite Kitchen Platform</div>
+                    <div class="amenity-item">Stainless Steel Sink</div>
+                    <div class="amenity-item">Branded Fittings</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRICING & UNIT PLANS -->
+
+        <section class="project-extra-section alt">
+
+            <div class="container">
+
+                <div class="project-section-intro">
+
+                    <p class="section-subtitle">Pricing & Unit Plans</p>
+
+                    <h2>3 BHK Price Details</h2>
+
+                    <p>
+                        Explore the 3 BHK residences available at
+                        Assetz KVN NIWA & NEO.
+                    </p>
+
+                </div>
+
+
+                <div class="pricing-table-wrap">
+
+                    <table class="pricing-table">
+
+                        <thead>
+                            <tr>
+                                <th>Configuration</th>
+                                <th>Starting Price</th>
+                                <th>Enquiry</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><strong>3 BHK</strong></td>
+
+                                <td>
+                                    <strong>₹1.75 Cr Onwards</strong>
+                                </td>
+
+                                <td>
+                                    <a href="#enquire" class="text-button">
+                                        Enquire Now →
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="pricing-note">
+                    Starting price shared by SM Properties.
+                    Prices are indicative and subject to change based on
+                    unit availability, floor selection and the latest
+                    builder cost sheet. Contact SM Properties for the
+                    latest price breakup and applicable charges.
+                </p>
+
+            </div>
+
+        </section>
+
+
+       
+<!-- DEVELOPER INFORMATION -->
+
+<section class="project-extra-section">
+
+    <div class="container">
+
+        <div class="project-section-intro">
+            <p class="section-subtitle">The Developer</p>
+            <h2>Developer Information</h2>
+        </div>
+
+        <div class="developer-information-card">
+
+            <img
+                src="images/builders/assetz.png"
+                alt="Assetz Group Logo"
+            >
+
+            <div class="developer-information-content">
+
+                <h3>Assetz Group</h3>
+
+                <p>
+                    Founded in 2006, Assetz is a Bengaluru-based,
+                    design-led real estate developer known for
+                    creating premium residential communities with
+                    a focus on design, quality and sustainability.
+                </p>
+
+                <div class="developer-stats">
+
+                    <div class="developer-stat">
+                        <h4>20+</h4>
+                        <p>Years of Experience</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>65+</h4>
+                        <p>Projects</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>45+ Mn</h4>
+                        <p>Sq. Ft. Portfolio</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>22,000+</h4>
+                        <p>Residential Units</p>
+                    </div>
+
+                </div>
+
+                <a href="#project-enquiry" class="btn btn-primary">
+                    Enquire About This Project
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- ENQUIRY CTA -->
+
+        <section class="project-enquiry-section" id="enquire">
+
+            <div class="container">
+
+                <h2>Interested in Assetz KVN NIWA & NEO?</h2>
+
+                <p>
+                    Connect with SM Properties for project details,
+                    pricing, availability and site visit assistance.
+                </p>
+
+                <div class="project-enquiry-buttons">
+
+                    <a
+                        href="https://wa.me/918618633659?text=Hi%2C%20I%20am%20interested%20in%20Assetz%20KVN%20NIWA%20%26%20NEO."
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Enquire on WhatsApp
+                    </a>
+
+                    <a
+                        href="tel:+918618633659"
+                        class="secondary"
+                    >
+                        Call SM Properties
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <img
+                        src="images/logo.jpg"
+                        alt="SM Properties"
+                        class="footer-logo"
+                    >
+
+                    <p>
+                        Turning Dreams Into Addresses.
+                        Helping you discover the right property
+                        with confidence.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Quick Links</h4>
+
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Contact</h4>
+
+                    <a href="tel:+918618633659">
+                        +91 86186 33659
+                    </a>
+
+                    <a href="mailto:smproperties96@gmail.com">
+                        smproperties96@gmail.com
+                    </a>
+
+                    <a
+                        href="https://wa.me/918618633659"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        WhatsApp Us
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Office Address</h4>
+
+                    <p>
+                        Anugraha, No. 60C, 1st Floor,
+                        80 Feet Road, Opp. Axis Bank,
+                        ITI Employees Layout, Mallathahalli,
+                        Bengaluru, Karnataka 560056.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container footer-bottom-container">
+
+                <p>
+                    © 2026 SM Properties. All Rights Reserved.
+                </p>
+
+                <div class="footer-legal">
+                    <a href="contact.html">Contact Us</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- FLOATING WHATSAPP -->
+
+    <a
+        href="https://wa.me/918618633659?text=Hi%2C%20I%20am%20interested%20in%20Assetz%20KVN%20NIWA%20%26%20NEO."
+        class="floating-whatsapp"
+        target="_blank"
+        rel="noopener"
+    >
+        WhatsApp
+    </a>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

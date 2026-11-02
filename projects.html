@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Projects | SM Properties</title>
+
+    <meta
+        name="description"
+        content="Explore residential projects from trusted developers with SM Properties."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+
+                <img
+                    src="images/logo.jpg"
+                    alt="SM Properties"
+                >
+
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#about">
+                    About Us
+                </a>
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+               
+
+                <a href="index.html#why-us">
+                    Why Us
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="index.html#contact"
+                    class="header-button"
+                >
+                    Enquire Now
+                </a>
+
+
+                <button
+                    class="mobile-menu-button"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE NAV -->
+
+        <div class="mobile-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About Us
+            </a>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+
+            <a href="index.html#why-us">
+                Why Us
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- PAGE HERO -->
+
+        <section class="page-hero">
+
+            <div class="container page-hero-content">
+
+                <p class="section-subtitle">
+                    SM PROPERTIES
+                </p>
+
+                <h1>
+                    Our Projects
+                </h1>
+
+                <p>
+                    Explore carefully selected residential properties
+                    from trusted developers across Bengaluru.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section class="projects-page-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <p class="section-subtitle">
+                        EXPLORE
+                    </p>
+
+                    <h2>
+                        Find Your Next Property
+                    </h2>
+
+                    <p>
+                        Browse our property collection by developer,
+                        location and configuration.
+                    </p>
+
+                </div>
+
+
+                <!-- FILTERS -->
+
+                <div class="project-filters">
+
+
+                    <div class="filter-group">
+
+                        <label for="developerFilter">
+                            Developer
+                        </label>
+
+                        <select id="developerFilter">
+
+                            <option value="all">
+                                All Developers
+                            </option>
+
+                            <option value="puravankara">
+                                Puravankara
+                            </option>
+
+                            <option value="assetz">
+                                Assetz
+                            </option>
+
+                            <option value="prestige">
+                                Prestige Group
+                            </option>
+
+                            <option value="godrej">
+                                Godrej Properties
+                            </option>
+                            <option value="nambiar">Nambiar Builders</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="locationFilter">
+                            Location
+                        </label>
+
+                        <select id="locationFilter">
+
+                            <option value="all">
+                                All Locations
+                            </option>
+
+                            <option value="devanahalli">
+                                Devanahalli
+                            </option>
+                                <option value="aerospace-park">Aerospace Park</option>
+
+
+                            <option value="sarjapur">
+                                Sarjapur
+                            </option>
+
+                            <option value="whitefield">
+                                Whitefield
+                            </option>
+
+                            <option value="yelahanka">
+                                Yelahanka
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="configurationFilter">
+                            Configuration
+                        </label>
+
+                        <select id="configurationFilter">
+
+                            <option value="all">
+                                All Configurations
+                            </option>
+
+                            <option value="1bhk">
+                                1 BHK
+                            </option>
+
+                            <option value="2bhk">
+                                2 BHK
+                            </option>
+
+                            <option value="3bhk">
+                                3 BHK
+                            </option>
+
+                            <option value="4bhk">
+                                4 BHK
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="clear-filters"
+                        id="clearFilters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+                <!-- PROJECT GRID -->
+
+                <div class="projects-page-grid">
+
+
+                    <!-- =================================================
+                         NORTHERN LIGHTS
+                    ================================================== -->
+
+                    <article
+                        class="project-card"
+                        data-developer="puravankara"
+                        data-location="devanahalli"
+                        data-configurations="1bhk,2bhk,3bhk"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="images/projects/project-1.jpg"
+                                alt="Northern Lights by Puravankara"
+                            >
+
+                            <span class="project-tag">
+                                Featured
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-developer">
+                                Puravankara
+                            </span>
+
+                            <h3>
+                                Northern Lights
+                            </h3>
+
+                            <span class="project-location">
+                                Aerospace Park, Devanahalli
+                            </span>
+
+                            <div class="project-meta">
+
+                                <span>
+                                    1, 2, 3 & 3.5 BHK
+                                </span>
+
+                                <span>
+                                    ₹80 Lakh Onwards
+                                </span>
+
+                            </div>
+
+                           <<a
+    href="northern-lights.html"
+    class="project-link"
+>
+    View Project →
+</a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         TREES & TANDEM
+                    ================================================== -->
+
+                    <article
+                        class="project-card"
+                        data-developer="assetz"
+                        data-location="sarjapur"
+                        data-configurations="3bhk"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="images/projects/project-2.jpg"
+                                alt="Trees & Tandem by Assetz"
+                            >
+
+                            <span class="project-tag">
+                                Featured
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-developer">
+                                Assetz
+                            </span>
+
+                            <h3>
+                                Trees & Tandem
+                            </h3>
+
+                            <span class="project-location">
+                                Chokkasandra, Sarjapur
+                            </span>
+
+                            <div class="project-meta">
+
+                                <span>
+                                    3 BHK
+                                </span>
+
+                                <span>
+                                    ₹2.20 Cr Onwards
+                                </span>
+
+                            </div>
+
+                           <a
+    href="trees-and-tandem.html"
+    class="project-link"
+>
+    View Project →
+</a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         EVERGREEN PARK
+                    ================================================== -->
+
+                    <article
+                        class="project-card"
+                        data-developer="prestige"
+                        data-location="whitefield"
+                        data-configurations="3bhk,4bhk"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="images/projects/project-3.jpg"
+                                alt="Evergreen Park by Prestige Group"
+                            >
+
+                            <span class="project-tag">
+                                Featured
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-developer">
+                                Prestige Group
+                            </span>
+
+                            <h3>
+                                Evergreen Park
+                            </h3>
+
+                            <span class="project-location">
+                                Whitefield
+                            </span>
+
+                            <div class="project-meta">
+
+                                <span>
+                                    3 & 4 BHK
+                                </span>
+
+                                <span>
+                                    ₹2.30 Cr Onwards
+                                </span>
+
+                            </div>
+
+                            <a
+    href="evergreen-park.html"
+    class="project-link"
+>
+    View Project →
+</a>
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         AVELINE
+                    ================================================== -->
+
+                    <article
+                        class="project-card"
+                        data-developer="godrej"
+                        data-location="yelahanka"
+                        data-configurations="3bhk,4bhk"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="images/projects/project-4.jpg"
+                                alt="Aveline by Godrej Properties"
+                            >
+
+                            <span class="project-tag">
+                                Featured
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-developer">
+                                Godrej Properties
+                            </span>
+
+                            <h3>
+                                Aveline
+                            </h3>
+
+                            <span class="project-location">
+                                Yelahanka
+                            </span>
+
+                            <div class="project-meta">
+
+                                <span>
+                                    3 & 4 BHK
+                                </span>
+
+                                <span>
+                                    ₹2.79 Cr Onwards
+                                </span>
+
+                            </div>
+
+                            <a href="aveline.html" class="project-link">
+    View Project →
+</a>
+
+                        </div>
+
+                    </article>
+                    <!-- =================================================
+                     NAMBIAR DISTRICT 25
+================================================== -->
+
+<article
+    class="project-card"
+    data-developer="nambiar"
+    data-location="sarjapur"
+    data-configurations="2bhk,3bhk,4bhk,4.5bhk"
+>
+
+    <div class="project-image">
+
+        <img
+            src="images/projects/project-5.jpg"
+            alt="Nambiar District 25 by Nambiar Builders"
+        >
+
+        <span class="project-tag">
+            Featured
+        </span>
+
+    </div>
+
+
+    <div class="project-info">
+
+        <span class="project-developer">
+            Nambiar Builders
+        </span>
+
+        <h3>
+            Nambiar District 25
+        </h3>
+
+        <span class="project-location">
+            Muthanallur, Sarjapur Road
+        </span>
+
+        <div class="project-meta">
+
+            <span>
+                2, 3, 4 & 4.5 BHK
+            </span>
+
+            <span>
+                ₹1.65 Cr Onwards
+            </span>
+
+        </div>
+
+        <a href="nambiar-district-25.html" class="project-link">
+            View Project →
+        </a>
+
+    </div>
+
+</article>
+<!-- =================================================
+              ASSETZ KVN NIWA & NEO
+================================================== -->
+
+<article
+    class="project-card"
+    data-developer="assetz"
+    data-location="aerospace-park"
+    data-configurations="3bhk"
+>
+
+    <div class="project-image">
+
+        <img
+            src="images/projects/assetz-niwa-and-neo.jpg"
+            alt="Assetz KVN NIWA and NEO"
+        >
+
+        <span class="project-tag">
+            Featured
+        </span>
+
+    </div>
+
+    <div class="project-info">
+
+        <span class="project-developer">
+            Assetz
+        </span>
+
+        <h3>
+            Assetz KVN NIWA & NEO
+        </h3>
+
+        <span class="project-location">
+            Gummanahalli, Aerospace Park
+        </span>
+
+        <div class="project-meta">
+
+            <span>3 BHK</span>
+
+            <span>₹1.75 Cr Onwards</span>
+
+        </div>
+
+        <a href="assetz-niwa-and-neo.html" class="project-link">
+            View Project →
+        </a>
+
+    </div>
+
+</article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-brand">
+
+                <img
+                    src="images/logo.jpg"
+                    alt="SM Properties"
+                    class="footer-logo"
+                >
+
+                <p>
+                    Turning Dreams Into Addresses.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#about">
+                    About Us
+                </a>
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+                <a href="index.html#services">
+                    Services
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Developers
+                </h4>
+
+                <a href="#">
+                    Godrej
+                </a>
+
+                <a href="#">
+                    Prestige
+                </a>
+
+                <a href="#">
+                    Puravankara
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact Us
+                </h4>
+
+                <p>
+                    Anugraha, No. 60C, 1st Floor,
+                    80 Feet Rd, Opp. Axis Bank,
+                    ITI Employees Layout,
+                    Mallathahalli,
+                    Bengaluru, Karnataka 560056
+                </p>
+
+                <a href="tel:+918618633659">
+                    +91 86186 33659
+                </a>
+
+                <a
+                    href="https://wa.me/918618633659"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+
+                <a href="mailto:smproperties96@gmail.com">
+                    smproperties96@gmail.com
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container footer-bottom-container">
+
+                <p>
+                    © 2026 SM Properties. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const developerFilter =
+        document.getElementById("developerFilter");
+
+    const locationFilter =
+        document.getElementById("locationFilter");
+
+    const configurationFilter =
+        document.getElementById("configurationFilter");
+
+    const clearFilters =
+        document.getElementById("clearFilters");
+
+    const projectCards =
+        document.querySelectorAll(
+            ".projects-page-grid .project-card"
+        );
+
+
+    function applyFilters() {
+
+        const developer =
+            developerFilter.value;
+
+        const location =
+            locationFilter.value;
+
+        const configuration =
+            configurationFilter.value;
+
+
+        projectCards.forEach(function (card) {
+
+            const cardDeveloper =
+                card.getAttribute("data-developer") || "";
+
+            const cardLocation =
+                card.getAttribute("data-location") || "";
+
+            const cardConfigurations =
+                (
+                    card.getAttribute(
+                        "data-configurations"
+                    ) || ""
+                )
+                .toLowerCase()
+                .split(",");
+
+
+            const developerMatch =
+                developer === "all" ||
+                cardDeveloper === developer;
+
+
+            const locationMatch =
+                location === "all" ||
+                cardLocation === location;
+
+
+            const configurationMatch =
+                configuration === "all" ||
+                cardConfigurations.includes(
+                    configuration
+                );
+
+
+            card.style.display =
+                developerMatch &&
+                locationMatch &&
+                configurationMatch
+                    ? ""
+                    : "none";
+
+        });
+
+    }
+
+
+    /* READ DEVELOPER FROM URL */
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const developerFromURL =
+        params.get("developer");
+
+
+    if (developerFromURL) {
+
+        developerFilter.value =
+            developerFromURL;
+
+    }
+
+
+    /* RUN FILTER */
+
+    applyFilters();
+
+
+    /* DROPDOWN CHANGES */
+
+    developerFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+
+    locationFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+
+    configurationFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+
+
+    /* CLEAR */
+
+    clearFilters.addEventListener(
+        "click",
+        function () {
+
+            developerFilter.value = "all";
+
+            locationFilter.value = "all";
+
+            configurationFilter.value = "all";
+
+            applyFilters();
+
+            window.history.replaceState(
+                {},
+                document.title,
+                "projects.html"
+            );
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
