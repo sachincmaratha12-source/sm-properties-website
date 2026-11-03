@@ -2757,3 +2757,40 @@ button {
     color: #777777;
     text-align: center;
 }
+/* =========================================
+   MOBILE RESPONSIVE WIDTH FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero,
+    .hero-section,
+    .featured-projects {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .slider-wrapper,
+    .projects-slider {
+        max-width: 100%;
+    }
+
+    .projects-slider {
+        overflow: hidden;
+    }
+
+}
