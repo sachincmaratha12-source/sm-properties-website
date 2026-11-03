@@ -2622,3 +2622,136 @@ button {
         max-height: 65px;
     }
 }
+/* =================================================
+   HEADER LIVE SEARCH
+================================================= */
+
+.header-search {
+    position: relative;
+    flex: 0 1 300px;
+    max-width: 320px;
+    margin: 0 15px;
+    z-index: 1000;
+}
+
+.search-input-wrap {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    background: #ffffff;
+    border: 1px solid #d9dce3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#siteSearchInput {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #142b4a;
+    font-size: 13px;
+}
+
+#siteSearchInput::placeholder {
+    color: #888888;
+}
+
+#siteSearchButton {
+    height: 100%;
+    padding: 0 15px;
+    border: none;
+    background: #142b4a;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#siteSearchButton:hover {
+    background: #b99755;
+}
+
+/* Search suggestions panel */
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    max-height: 350px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    z-index: 2000;
+}
+
+.search-results[hidden] {
+    display: none;
+}
+
+/* Mobile layout */
+
+@media (max-width: 900px) {
+    .header-search {
+        order: 3;
+        flex: 1 0 100%;
+        max-width: none;
+        margin: 12px 0;
+    }
+}
+/* =================================================
+   SEARCH SUGGESTION ITEMS
+================================================= */
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: #142b4a;
+    border-bottom: 1px solid #eeeeee;
+    transition: background 0.2s ease;
+}
+
+.search-result-item:hover {
+    background: #f5f7fa;
+}
+
+.search-result-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.search-result-details strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: #142b4a;
+}
+
+.search-result-details small {
+    font-size: 11px;
+    color: #777777;
+}
+
+.search-result-category {
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #b18b45;
+    font-weight: 600;
+}
+
+.search-no-results {
+    padding: 16px;
+    font-size: 13px;
+    color: #777777;
+    text-align: center;
+}
