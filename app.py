@@ -23,6 +23,7 @@ ALLOWED_PAGES = {
     "aveline.html",
     "nambiar-district-25.html",
     "assetz-niwa-and-neo.html"
+    "godrej-woods.html",
 }
 
 
