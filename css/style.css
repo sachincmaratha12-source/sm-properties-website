@@ -2794,3 +2794,40 @@ button {
     }
 
 }
+@media (max-width: 768px) {
+    .header-container {
+        min-height: auto;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    .header-search {
+        order: 4;
+        flex: 1 0 100%;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .search-input-wrap {
+        width: 100%;
+    }
+
+    .search-results {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .header-actions {
+        gap: 8px;
+        flex-shrink: 1;
+    }
+}
+@media (max-width: 768px) {
+    .logo img {
+        width: 125px;
+    }
+}
