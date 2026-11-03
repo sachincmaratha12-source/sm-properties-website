@@ -233,9 +233,42 @@
                 <a href="projects.html">Projects</a>
                 <a href="index.html#why-sm">Why Us</a>
                 <a href="contact.html">Contact</a>
-            </nav>
+          </nav>
 
-            <div class="header-actions">
+<!-- HEADER SEARCH -->
+
+<div class="header-search">
+
+    <div class="search-input-wrap">
+
+        <input
+            type="search"
+            id="siteSearchInput"
+            placeholder="Search projects, locations, builders..."
+            autocomplete="off"
+            aria-label="Search projects, locations and builders"
+            aria-controls="siteSearchResults"
+        >
+
+        <button
+            type="button"
+            id="siteSearchButton"
+            aria-label="Search"
+        >
+            🔍
+        </button>
+
+    </div>
+
+    <div
+        id="siteSearchResults"
+        class="search-results"
+        hidden
+    ></div>
+
+</div>
+
+<div class="header-actions">
                 <a href="#enquire" class="header-button">
                     Enquire Now
                 </a>

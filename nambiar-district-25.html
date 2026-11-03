@@ -52,8 +52,40 @@
 
             </nav>
 
+<!-- HEADER SEARCH -->
 
-            <div class="header-actions">
+<div class="header-search">
+
+    <div class="search-input-wrap">
+
+        <input
+            type="search"
+            id="siteSearchInput"
+            placeholder="Search projects, locations, builders..."
+            autocomplete="off"
+            aria-label="Search projects, locations and builders"
+            aria-controls="siteSearchResults"
+        >
+
+        <button
+            type="button"
+            id="siteSearchButton"
+            aria-label="Search"
+        >
+            🔍
+        </button>
+
+    </div>
+
+    <div
+        id="siteSearchResults"
+        class="search-results"
+        hidden
+    ></div>
+
+</div>
+
+<div class="header-actions">
 
                 <a href="contact.html" class="header-button">
                     Enquire Now

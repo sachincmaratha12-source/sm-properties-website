@@ -80,8 +80,40 @@
 
             </nav>
 
+<!-- HEADER SEARCH -->
 
-            <div class="header-actions">
+<div class="header-search">
+
+    <div class="search-input-wrap">
+
+        <input
+            type="search"
+            id="siteSearchInput"
+            placeholder="Search projects, locations, builders..."
+            autocomplete="off"
+            aria-label="Search projects, locations and builders"
+            aria-controls="siteSearchResults"
+        >
+
+        <button
+            type="button"
+            id="siteSearchButton"
+            aria-label="Search"
+        >
+            🔍
+        </button>
+
+    </div>
+
+    <div
+        id="siteSearchResults"
+        class="search-results"
+        hidden
+    ></div>
+
+</div>
+
+<div class="header-actions">
 
                 <a
                     href="contact.html"
@@ -876,62 +908,71 @@
 
 
 
-        <!-- =================================================
-             DEVELOPER INFORMATION
-        ================================================== -->
+        
+<!-- DEVELOPER INFORMATION -->
 
-        <section class="developer-information-section">
+<section class="project-extra-section">
 
-            <div class="container developer-information-grid">
+    <div class="container">
 
+        <div class="project-section-intro">
+            <p class="section-subtitle">The Developer</p>
+            <h2>Developer Information</h2>
+        </div>
 
-                <div class="developer-information-logo">
+        <div class="developer-information-card">
 
-                    <img
-                        src="images/builders/puravankara.jpg"
-                        alt="Puravankara Group"
-                    >
+            <img
+                src="images/builders/puravankara.jpg"
+                alt="Puravankara Group Logo"
+            >
+
+            <div class="developer-information-content">
+
+                <h3>Puravankara Group</h3>
+
+                <p>
+                    Established in 1975, Puravankara Group is one of
+                    India's established real estate developers, with
+                    a presence across residential and commercial
+                    real estate markets.
+                </p>
+
+                <div class="developer-stats">
+
+                    <div class="developer-stat">
+                        <h4>50+</h4>
+                        <p>Years of Experience</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>90+</h4>
+                        <p>Completed Projects</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>9</h4>
+                        <p>Cities</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>52.74 Mn</h4>
+                        <p>Sq. Ft. Developed</p>
+                    </div>
 
                 </div>
 
-
-                <div class="developer-information-content">
-
-                    <p class="section-subtitle">
-                        DEVELOPER INFORMATION
-                    </p>
-
-
-                    <h2>
-                        Puravankara Group
-                    </h2>
-
-
-                    <p>
-                        Puravankara Group is the developer behind
-                        Purva Northern Lights.
-                    </p>
-
-
-                    <p>
-                        The group operates across multiple Indian markets
-                        and has developed projects under the Puravankara
-                        and Provident brands.
-                    </p>
-
-
-                    <a
-                        href="contact.html"
-                        class="text-button"
-                    >
-                        Enquire About Northern Lights →
-                    </a>
-
-                </div>
+                <a href="contact.html" class="text-button">
+                    Enquire About Northern Lights →
+                </a>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
 
