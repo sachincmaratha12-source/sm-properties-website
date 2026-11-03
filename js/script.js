@@ -974,5 +974,64 @@ if (searchInput && searchResults) {
 
     });
 }
+/* =====================================================
+   ACTIVE NAVIGATION HIGHLIGHT
+===================================================== */
+
+function updateActiveNavigation() {
+
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
+    const currentHash = window.location.hash;
+
+    let activeLabel = "Projects";
+
+    if (currentPage === "index.html") {
+
+        if (currentHash === "#why-us") {
+            activeLabel = "Why Us";
+        } else if (currentHash === "#contact") {
+            activeLabel = "Contact";
+        } else if (currentHash === "#about") {
+            activeLabel = "About Us";
+        } else {
+            activeLabel = "Home";
+        }
+
+    } else if (currentPage === "about.html") {
+
+        activeLabel = "About Us";
+
+    } else if (currentPage === "contact.html") {
+
+        activeLabel = "Contact";
+
+    } else if (currentPage === "projects.html") {
+
+        activeLabel = "Projects";
+
+    }
+
+    document.querySelectorAll(
+        ".main-nav a, .mobile-nav a"
+    ).forEach(function (link) {
+
+        link.classList.remove("active");
+
+        if (
+            link.textContent.trim().toLowerCase() ===
+            activeLabel.toLowerCase()
+        ) {
+            link.classList.add("active");
+        }
+
+    });
+
+}
+
+updateActiveNavigation();
+
+window.addEventListener("hashchange", updateActiveNavigation);
 
 });

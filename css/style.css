@@ -193,11 +193,13 @@ button {
     width: 100%;
 }
 
-.main-nav a:first-child {
+/* ACTIVE NAVIGATION PAGE */
+
+.main-nav a.active {
     color: var(--gold);
 }
 
-.main-nav a:first-child::after {
+.main-nav a.active::after {
     width: 100%;
 }
 
