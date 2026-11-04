@@ -24,6 +24,15 @@ ALLOWED_PAGES = {
     "nambiar-district-25.html",
     "assetz-niwa-and-neo.html",
     "godrej-woods.html",
+    
+}
+ROOT_ASSETS = {
+    "favicon.ico",
+    "favicon.png",
+    "favicon-16x16.png",
+    "favicon-32x32.png",
+    "apple-touch-icon.png",
+    "android-chrome-192x192.png",
 }
 
 
@@ -34,7 +43,7 @@ def home():
 
 @app.route("/<path:filename>")
 def website_files(filename):
-    if filename in ALLOWED_PAGES:
+    if filename in ALLOWED_PAGES or filename in ROOT_ASSETS:
         return send_from_directory(BASE_DIR, filename)
 
     if filename.startswith(("css/", "js/", "images/")):
