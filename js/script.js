@@ -1185,6 +1185,27 @@ if (document.body.classList.contains("project-detail-page")) {
 
             nameInput.focus();
         }
+        // Open popup from all project enquiry links
+document.querySelectorAll("a").forEach(function(link) {
+
+    const label = link.textContent.trim().toLowerCase();
+    const destination = link.getAttribute("href") || "";
+
+    if (
+        label.includes("enquir") &&
+        !destination.startsWith("https://wa.me")
+    ) {
+
+        link.addEventListener("click", function(event) {
+
+            event.preventDefault();
+            openProjectEnquiry();
+
+        });
+
+    }
+
+});
 
         // Close popup
         function closeProjectEnquiry() {
