@@ -921,3 +921,193 @@
     }
 
 }
+/* =====================================================
+   FLOATING ENQUIRY BUTTON + POPUP
+===================================================== */
+
+.project-floating-actions {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-floating-actions .floating-whatsapp {
+    position: static;
+    right: auto;
+    bottom: auto;
+}
+
+.floating-enquiry-button {
+    height: 46px;
+    min-width: 125px;
+    padding: 0 20px;
+    border: 1px solid var(--gold);
+    border-radius: 24px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+
+.floating-enquiry-button:hover {
+    background: var(--gold);
+    color: var(--navy-dark);
+}
+
+/* Popup backdrop */
+
+.project-enquiry-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(7, 25, 45, .72);
+}
+
+.project-enquiry-modal.is-open {
+    display: flex;
+}
+
+.project-enquiry-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.project-enquiry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.project-enquiry-header h2 {
+    color: var(--navy);
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+}
+
+.project-enquiry-header p {
+    margin-top: 6px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.project-enquiry-close {
+    border: none;
+    background: none;
+    color: var(--navy);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.project-enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.project-enquiry-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-enquiry-form input,
+.project-enquiry-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    font: inherit;
+    font-size: 14px;
+}
+
+.project-enquiry-form input:focus,
+.project-enquiry-form textarea:focus {
+    border-color: var(--gold);
+}
+
+.project-enquiry-form textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.project-enquiry-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.project-enquiry-submit:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+.project-enquiry-status {
+    font-size: 13px;
+}
+
+.project-enquiry-status.success {
+    color: #168044;
+}
+
+.project-enquiry-status.error {
+    color: #c0392b;
+}
+
+body.project-enquiry-modal-open {
+    overflow: hidden;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .project-floating-actions {
+        right: 12px;
+        bottom: 14px;
+        gap: 8px;
+    }
+
+    .project-floating-actions .floating-whatsapp,
+    .floating-enquiry-button {
+        min-width: auto;
+        height: 42px;
+        padding: 0 13px;
+        font-size: 11px;
+    }
+
+    .project-enquiry-dialog {
+        padding: 22px;
+    }
+
+    .project-enquiry-header h2 {
+        font-size: 23px;
+    }
+}

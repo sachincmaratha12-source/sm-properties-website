@@ -1034,4 +1034,277 @@ updateActiveNavigation();
 
 window.addEventListener("hashchange", updateActiveNavigation);
 
+/* =====================================================
+   FLOATING PROJECT ENQUIRY POPUP
+===================================================== */
+
+if (document.body.classList.contains("project-detail-page")) {
+
+    const whatsappButton = document.querySelector(".floating-whatsapp");
+
+    const projectName =
+        document.querySelector(".project-detail-intro h1")
+            ?.textContent.trim() || document.title;
+
+    const projectLocation =
+        document.querySelector(".project-detail-location")
+            ?.textContent.trim() || "";
+
+    if (whatsappButton) {
+
+        // Create floating button container
+        const floatingActions = document.createElement("div");
+        floatingActions.className = "project-floating-actions";
+
+        whatsappButton.parentNode.insertBefore(
+            floatingActions,
+            whatsappButton
+        );
+
+        floatingActions.appendChild(whatsappButton);
+
+        // Create Enquire Now button
+        const enquiryButton = document.createElement("button");
+        enquiryButton.type = "button";
+        enquiryButton.className = "floating-enquiry-button";
+        enquiryButton.textContent = "Enquire Now";
+
+        floatingActions.appendChild(enquiryButton);
+
+        // Create popup
+        const modal = document.createElement("div");
+        modal.className = "project-enquiry-modal";
+        modal.setAttribute("aria-hidden", "true");
+
+        const safeProjectName = projectName.replace(
+            /[&<>"']/g,
+            function (character) {
+                return {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#39;"
+                }[character];
+            }
+        );
+
+        modal.innerHTML = `
+            <div class="project-enquiry-dialog"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="projectEnquiryTitle">
+
+                <div class="project-enquiry-header">
+                    <div>
+                        <h2 id="projectEnquiryTitle">Enquire Now</h2>
+                        <p>Enquiring about: ${safeProjectName}</p>
+                    </div>
+
+                    <button type="button"
+                            class="project-enquiry-close"
+                            aria-label="Close enquiry form">
+                        &times;
+                    </button>
+                </div>
+
+                <form class="project-enquiry-form">
+
+                    <div>
+                        <label for="popupEnquiryName">Full Name *</label>
+                        <input type="text"
+                               id="popupEnquiryName"
+                               name="name"
+                               placeholder="Enter your name"
+                               autocomplete="name"
+                               required>
+                    </div>
+
+                    <div>
+                        <label for="popupEnquiryPhone">Mobile Number *</label>
+                        <input type="tel"
+                               id="popupEnquiryPhone"
+                               name="phone"
+                               placeholder="Enter mobile number"
+                               autocomplete="tel"
+                               inputmode="tel"
+                               required>
+                    </div>
+
+                    <div>
+                        <label for="popupEnquiryEmail">Email Address</label>
+                        <input type="email"
+                               id="popupEnquiryEmail"
+                               name="email"
+                               placeholder="Enter your email"
+                               autocomplete="email">
+                    </div>
+
+                    <div>
+                        <label for="popupEnquiryMessage">Message</label>
+                        <textarea id="popupEnquiryMessage"
+                                  name="message"
+                                  placeholder="Any specific requirements?"></textarea>
+                    </div>
+
+                    <button type="submit" class="project-enquiry-submit">
+                        Submit Enquiry
+                    </button>
+
+                    <p class="project-enquiry-status"
+                       role="status"
+                       aria-live="polite"></p>
+
+                </form>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const enquiryForm =
+            modal.querySelector(".project-enquiry-form");
+
+        const closeButton =
+            modal.querySelector(".project-enquiry-close");
+
+        const submitButton =
+            modal.querySelector(".project-enquiry-submit");
+
+        const statusMessage =
+            modal.querySelector(".project-enquiry-status");
+
+        const nameInput =
+            modal.querySelector("#popupEnquiryName");
+
+
+        // Open popup
+        function openProjectEnquiry() {
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("project-enquiry-modal-open");
+
+            nameInput.focus();
+        }
+
+        // Close popup
+        function closeProjectEnquiry() {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("project-enquiry-modal-open");
+
+            enquiryButton.focus();
+        }
+
+        enquiryButton.addEventListener(
+            "click",
+            openProjectEnquiry
+        );
+
+        closeButton.addEventListener(
+            "click",
+            closeProjectEnquiry
+        );
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeProjectEnquiry();
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("is-open")
+            ) {
+                closeProjectEnquiry();
+            }
+        });
+
+
+        // Submit enquiry to Google Sheets through Flask
+        enquiryForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+                statusMessage.textContent = "";
+                statusMessage.className = "project-enquiry-status";
+
+                submitButton.disabled = true;
+                submitButton.textContent = "Sending...";
+
+                const formData = new FormData(enquiryForm);
+
+                const userMessage =
+                    formData.get("message").trim();
+
+                const enquiryData = {
+                    name: formData.get("name").trim(),
+
+                    phone: formData.get("phone").trim(),
+
+                    email: formData.get("email").trim(),
+
+                    property_type: "Project Enquiry - " + projectName,
+
+                    location: projectLocation,
+
+                    message:
+                        "Project: " + projectName +
+                        (userMessage ? "\nMessage: " + userMessage : "")
+                };
+
+                try {
+
+                    const response = await fetch(
+                        "/submit-enquiry",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(enquiryData)
+                        }
+                    );
+
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(
+                            result.message || "Unable to submit enquiry."
+                        );
+                    }
+
+                    statusMessage.textContent =
+                        result.message ||
+                        "Thank you! Your enquiry has been received.";
+
+                    statusMessage.classList.add("success");
+
+                    enquiryForm.reset();
+
+                } catch (error) {
+
+                    console.error("Project enquiry error:", error);
+
+                    statusMessage.textContent =
+                        error.message ||
+                        "Unable to submit your enquiry. Please try again.";
+
+                    statusMessage.classList.add("error");
+
+                } finally {
+
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Submit Enquiry";
+
+                }
+
+            }
+        );
+
+    }
+
+}
 });
