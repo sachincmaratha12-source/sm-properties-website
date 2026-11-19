@@ -1186,7 +1186,11 @@ if (document.body.classList.contains("project-detail-page")) {
             nameInput.focus();
         }
         // Open popup from all project enquiry links
-document.querySelectorAll("a").forEach(function(link) {
+document.addEventListener("click", function(event) {
+
+    const link = event.target.closest("a");
+
+    if (!link) return;
 
     const label = link.textContent.trim().toLowerCase();
     const destination = link.getAttribute("href") || "";
@@ -1195,18 +1199,11 @@ document.querySelectorAll("a").forEach(function(link) {
         label.includes("enquir") &&
         !destination.startsWith("https://wa.me")
     ) {
-
-        link.addEventListener("click", function(event) {
-
-            event.preventDefault();
-            openProjectEnquiry();
-
-        });
-
+        event.preventDefault();
+        openProjectEnquiry();
     }
 
-});
-
+}, true);
         // Close popup
         function closeProjectEnquiry() {
             modal.classList.remove("is-open");
