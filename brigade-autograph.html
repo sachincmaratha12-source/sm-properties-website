@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brigade Autograph Whitefield | SM Properties</title>
+    <meta name="description" content="Explore Brigade Autograph by Brigade Group at Konadasapura, Whitefield-Kadugodi Road, East Bengaluru. View 1, 2, 3, 3.5 and 4.5 BHK homes, floor plans, pricing and amenities with SM Properties.">
+    <meta name="theme-color" content="#142b4a">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <style>
+        .project-extra-section { padding: 82px 0; }
+        .project-extra-section.alt { background: var(--off-white); }
+        .project-section-intro { max-width: 780px; margin: 0 auto 42px; text-align: center; }
+        .project-section-intro h2 { color: var(--navy); font-family: "Playfair Display", serif; font-size: clamp(32px, 4vw, 46px); margin-bottom: 14px; }
+        .project-section-intro p { color: var(--text-light); line-height: 1.8; }
+        .project-detail-location { color: var(--text-light); }
+        .project-overview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+        .project-overview-item { padding: 20px; border: 1px solid var(--border); background: var(--white); }
+        .project-overview-item span { display: block; margin-bottom: 7px; color: var(--text-light); font-size: 12px; }
+        .project-overview-item strong { color: var(--navy); font-size: 15px; line-height: 1.5; }
+        .project-nearby-list, .amenities-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .nearby-item, .amenity-item { padding: 20px; background: var(--white); border: 1px solid var(--border); color: var(--navy); }
+        .nearby-item span { display: block; color: var(--text-light); font-size: 12px; margin-bottom: 7px; }
+        .nearby-item strong { font-size: 17px; }
+        .amenities-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .amenity-item { font-size: 14px; font-weight: 600; }
+        .amenity-item::before { content: "✓"; color: var(--gold); margin-right: 9px; font-weight: 700; }
+        .specification-heading { margin: 38px 0 18px; color: var(--navy); font-family: "Playfair Display", serif; font-size: 25px; }
+        .pricing-table-wrap { overflow-x: auto; background: var(--white); border: 1px solid var(--border); }
+        .pricing-table { width: 100%; border-collapse: collapse; min-width: 680px; }
+        .pricing-table th { padding: 16px; background: var(--navy); color: var(--white); text-align: left; font-size: 13px; }
+        .pricing-table td { padding: 17px 16px; border-bottom: 1px solid var(--border); color: var(--text-dark); font-size: 14px; }
+        .pricing-table td strong { color: var(--navy); }
+        .pricing-note { margin-top: 16px; color: var(--text-light); font-size: 13px; line-height: 1.75; }
+        .floor-plan-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+        .floor-plan-card { overflow: hidden; border: 1px solid var(--border); background: var(--white); }
+        .floor-plan-card img { display: block; width: 100%; height: 300px; padding: 12px; background: #f7f3ec; object-fit: contain; }
+        .floor-plan-card div { padding: 15px 17px 18px; }
+        .floor-plan-card h3 { margin-bottom: 5px; color: var(--navy); font-size: 16px; }
+        .floor-plan-card p { color: var(--text-light); font-size: 13px; line-height: 1.6; }
+        .developer-information-card { padding: 30px; background: var(--white); border: 1px solid var(--border); text-align: center; }
+        .developer-wordmark { display: inline-block; margin-bottom: 12px; color: var(--navy); font-size: 22px; font-weight: 800; letter-spacing: 2px; }
+        .developer-information-card p { max-width: 800px; margin: 0 auto; color: var(--text-light); line-height: 1.8; }
+        .project-enquiry-section { padding: 72px 0; background: var(--navy); color: var(--white); text-align: center; }
+        .project-enquiry-section h2 { margin-bottom: 14px; font-family: "Playfair Display", serif; font-size: clamp(30px, 4vw, 44px); }
+        .project-enquiry-section p { margin-bottom: 24px; color: rgba(255,255,255,.82); }
+        .project-enquiry-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+        .project-enquiry-buttons a { display: inline-flex; align-items: center; justify-content: center; padding: 13px 24px; background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 700; }
+        .project-enquiry-buttons a.secondary { background: transparent; border: 1px solid rgba(255,255,255,.7); color: var(--white); }
+        .project-highlight-note { margin-top: 18px; padding: 15px 18px; background: rgba(185,151,85,.10); border-left: 3px solid var(--gold); color: var(--text-light); font-size: 13px; line-height: 1.7; }
+        @media (max-width: 900px) {
+            .project-overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .amenities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .floor-plan-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 600px) {
+            .project-extra-section { padding: 60px 0; }
+            .project-overview-grid, .project-nearby-list, .amenities-grid, .floor-plan-grid { grid-template-columns: 1fr; }
+            .floor-plan-card img { height: 280px; }
+            .developer-information-card { padding: 22px; }
+        }
+    </style>
+</head>
+
+<body class="project-detail-page">
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="SM Properties">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="index.html#why-sm">Why Us</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header-search">
+                <div class="search-input-wrap">
+                    <input type="search" id="siteSearchInput" placeholder="Search projects, locations, builders..." autocomplete="off" aria-label="Search projects, locations and builders" aria-controls="siteSearchResults">
+                    <button type="button" id="siteSearchButton" aria-label="Search">🔍</button>
+                </div>
+                <div id="siteSearchResults" class="search-results" hidden></div>
+            </div>
+            <div class="header-actions">
+                <a href="#enquire" class="header-button">Enquire Now</a>
+            </div>
+            <button class="mobile-menu-button" aria-label="Open navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#why-sm">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#enquire">Enquire Now</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-detail-hero">
+            <div class="container project-detail-hero-content">
+                <div class="project-detail-image">
+                    <img src="images/projects/brigade-autograph.png" alt="Brigade Autograph integrated residences - artist's impression">
+                </div>
+                <div class="project-detail-intro">
+                    <p class="section-subtitle">Brigade Group</p>
+                    <h1>Brigade Autograph</h1>
+                    <p class="project-detail-location">Konadasapura, Whitefield-Kadugodi Road, East Bengaluru</p>
+                    <p>Brigade Autograph brings residences, retail, workplace, hospitality and leisure together in a large integrated development in East Bengaluru. The project is planned across approximately 40 acres, with premium homes and a range of lifestyle amenities.</p>
+                    <div class="project-detail-meta">
+                        <span>1, 2, 3, 3.5 &amp; 4.5 BHK</span>
+                        <span>Approx. 730-2,760 Sq.Ft.</span>
+                        <span>₹1.07 Cr Onwards</span>
+                    </div>
+                    <div class="project-detail-buttons">
+                        <a href="#enquire" class="primary-button">Enquire Now</a>
+                        <a href="https://wa.me/918618633659?text=Hi%2C%20I%20am%20interested%20in%20Brigade%20Autograph%2C%20Whitefield." target="_blank" rel="noopener" class="secondary-project-button">WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-overview-section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-subtitle">Project Overview</p>
+                    <h2>Brigade Autograph at a Glance</h2>
+                    <p>A mixed-use integrated development at Konadasapura on the Whitefield-Kadugodi corridor.</p>
+                </div>
+                <div class="project-overview-grid">
+                    <div class="project-overview-item"><span>Developer</span><strong>Brigade Group</strong></div>
+                    <div class="project-overview-item"><span>Land Parcel</span><strong>Approximately 40 Acres</strong></div>
+                    <div class="project-overview-item"><span>Towers</span><strong>13 Towers</strong></div>
+                    <div class="project-overview-item"><span>Structure</span><strong>3 Basements + Ground + 48 Floors</strong></div>
+                    <div class="project-overview-item"><span>Configurations</span><strong>1, 2, 3, 3.5 &amp; 4.5 BHK</strong></div>
+                    <div class="project-overview-item"><span>Approx. SBA</span><strong>730-2,760 Sq.Ft.</strong></div>
+                    <div class="project-overview-item"><span>Possession</span><strong>December 2031 (Housiey listing)</strong></div>
+                    <div class="project-overview-item"><span>RERA Registration</span><strong>PRM/KA/RERA/1251/446/PR/071126/009091</strong></div>
+                </div>
+                <div class="project-highlight-note">Brigade Autograph was earlier listed as Brigade Granada. The RERA registration name shown in the supplied project material is associated with Brigade Autograph.</div>
+            </div>
+        </section>
+
+        <section class="project-extra-section alt">
+            <div class="container">
+                <div class="project-section-intro">
+                    <p class="section-subtitle">Project Location</p>
+                    <h2>Location &amp; Connectivity</h2>
+                    <p>Located on Whitefield-Kadugodi Road at Konadasapura, East Bengaluru, with access to key destinations along the eastern growth corridor.</p>
+                </div>
+                <div class="project-nearby-list">
+                    <div class="nearby-item"><span>Nearby Road</span><strong>Old Madras Road</strong><span>Approx. 700 m</span></div>
+                    <div class="nearby-item"><span>Shopping &amp; Leisure</span><strong>Orion Uptown Mall</strong><span>Approx. 1.1 km</span></div>
+                    <div class="nearby-item"><span>Retail &amp; Lifestyle</span><strong>Decathlon</strong><span>Approx. 2.3 km</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-extra-section">
+            <div class="container">
+                <div class="project-section-intro">
+                    <p class="section-subtitle">Lifestyle &amp; Comfort</p>
+                    <h2>Amenities &amp; Specifications</h2>
+                    <p>Spaces planned for recreation, fitness, family time and everyday convenience.</p>
+                </div>
+                <h3 class="specification-heading">External Amenities</h3>
+                <div class="amenities-grid">
+                    <div class="amenity-item">Swimming Pool</div>
+                    <div class="amenity-item">Kids Pool</div>
+                    <div class="amenity-item">Kids Play Area</div>
+                    <div class="amenity-item">Toddlers Play Area</div>
+                    <div class="amenity-item">Gymnasium</div>
+                    <div class="amenity-item">Indoor Games</div>
+                    <div class="amenity-item">Cricket Pitch</div>
+                    <div class="amenity-item">Basketball Court</div>
+                    <div class="amenity-item">Volleyball Court</div>
+                    <div class="amenity-item">Amphitheatre</div>
+                    <div class="amenity-item">Gazebo</div>
+                    <div class="amenity-item">Multipurpose Hall</div>
+                </div>
+                <h3 class="specification-heading">Internal Specifications</h3>
+                <div class="amenities-grid">
+                    <div class="amenity-item">Vitrified Tiles</div>
+                    <div class="amenity-item">Granite Kitchen Platform</div>
+                    <div class="amenity-item">Stainless Steel Sink</div>
+                    <div class="amenity-item">Branded Fittings</div>
+                    <div class="amenity-item">CCTV Camera</div>
+                    <div class="amenity-item">Power Backup</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-extra-section alt">
+            <div class="container">
+                <div class="project-section-intro">
+                    <p class="section-subtitle">Pricing &amp; Unit Plans</p>
+                    <h2>Brigade Autograph Price Details</h2>
+                    <p>Starting all-inclusive prices as shared in the supplied Brigade Autograph interest form.</p>
+                </div>
+                <div class="pricing-table-wrap">
+                    <table class="pricing-table">
+                        <thead><tr><th>Configuration</th><th>Approx. SBA</th><th>Starting All-Inclusive Price</th><th>Enquiry</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>1 Bedroom</strong></td><td>~730 Sq.Ft.</td><td><strong>₹1.07 Cr</strong></td><td><a href="#enquire" class="text-button">Enquire Now →</a></td></tr>
+                            <tr><td><strong>2 Bedroom</strong></td><td>~1,275 Sq.Ft.</td><td><strong>₹1.79 Cr</strong></td><td><a href="#enquire" class="text-button">Enquire Now →</a></td></tr>
+                            <tr><td><strong>3 Bedroom + 2 Toilets</strong></td><td>~1,540 Sq.Ft.</td><td><strong>₹2.19 Cr</strong></td><td><a href="#enquire" class="text-button">Enquire Now →</a></td></tr>
+                            <tr><td><strong>3 Bedroom + 3 Toilets</strong></td><td>~1,820 Sq.Ft.</td><td><strong>₹2.59 Cr</strong></td><td><a href="#enquire" class="text-button">Enquire Now →</a></td></tr>
+                            <tr><td><strong>3 Bedroom + 3 Toilets + Study</strong></td><td>~2,240 Sq.Ft.</td><td><strong>₹3.29 Cr</strong></td><td><a href="#enquire" class="text-button">Enquire Now →</a></td></tr>
+                            <tr><td><strong>4 Bedroom + 4 Toilets + Maid</strong></td><td>~2,760 Sq.Ft.</td><td><strong>₹3.99 Cr</strong></td><td><a href="#enquire" class="text-button">Enquire Now →</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="pricing-note"><strong>Pricing note:</strong> The supplied interest form describes these as starting all-inclusive prices. It states that the price includes one car parking, clubhouse charges, infrastructure charges, maintenance charges and applicable GST. Floor-rise charges, PLC and SDR charges are excluded. Confirm the latest unit availability and final cost sheet before making a purchase decision.</p>
+                <h3 class="specification-heading">Indicative Monthly Maintenance</h3>
+                <div class="pricing-table-wrap">
+                    <table class="pricing-table">
+                        <thead><tr><th>Configuration</th><th>Monthly Maintenance (Housiey listing)</th></tr></thead>
+                        <tbody>
+                            <tr><td>1 BHK</td><td>₹3,700</td></tr>
+                            <tr><td>2 BHK</td><td>₹6,400</td></tr>
+                            <tr><td>3 BHK</td><td>₹7,700-₹9,100</td></tr>
+                            <tr><td>3.5 BHK</td><td>₹11,200</td></tr>
+                            <tr><td>4.5 BHK</td><td>₹13,800</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="pricing-note">Maintenance figures are indicative and may vary by configuration, carpet area and final association/developer schedule.</p>
+            </div>
+        </section>
+
+        <section class="project-extra-section">
+            <div class="container">
+                <div class="project-section-intro">
+                    <p class="section-subtitle">Floor Plans</p>
+                    <h2>Explore Unit Layouts</h2>
+                    <p>Selected unit-plan visuals extracted from the Brigade Autograph unit deck supplied for this project.</p>
+                </div>
+                <div class="floor-plan-grid">
+                    <article class="floor-plan-card"><a href="images/projects/brigade-autograph/1bhk-unit-plan.png" target="_blank" rel="noopener"><img src="images/projects/brigade-autograph/1bhk-unit-plan.png" alt="Brigade Autograph 1 BHK unit floor plan"></a><div><h3>1 BHK + 1 Toilet</h3><p>Approx. SBA: 730 Sq.Ft. | Plan sheet: 1 BHK + 1 W</p></div></article>
+                    <article class="floor-plan-card"><a href="images/projects/brigade-autograph/2bhk-unit-plan.png" target="_blank" rel="noopener"><img src="images/projects/brigade-autograph/2bhk-unit-plan.png" alt="Brigade Autograph 2 BHK unit floor plan"></a><div><h3>2 BHK + 2 Toilets</h3><p>Approx. SBA: 1,275 Sq.Ft.</p></div></article>
+                    <article class="floor-plan-card"><a href="images/projects/brigade-autograph/3bhk-2t-unit-plan.png" target="_blank" rel="noopener"><img src="images/projects/brigade-autograph/3bhk-2t-unit-plan.png" alt="Brigade Autograph 3 BHK two toilet floor plan"></a><div><h3>3 BHK + 2 Toilets</h3><p>Approx. SBA: 1,540 Sq.Ft.</p></div></article>
+                    <article class="floor-plan-card"><a href="images/projects/brigade-autograph/3bhk-3t-unit-plan.png" target="_blank" rel="noopener"><img src="images/projects/brigade-autograph/3bhk-3t-unit-plan.png" alt="Brigade Autograph 3 BHK three toilet floor plan"></a><div><h3>3 BHK + 3 Toilets</h3><p>Approx. SBA: 1,820 Sq.Ft.</p></div></article>
+                    <article class="floor-plan-card"><a href="images/projects/brigade-autograph/3-5bhk-study-unit-plan.png" target="_blank" rel="noopener"><img src="images/projects/brigade-autograph/3-5bhk-study-unit-plan.png" alt="Brigade Autograph 3.5 BHK study floor plan"></a><div><h3>3 BHK + Study + PWD Room</h3><p>Approx. SBA: 2,240 Sq.Ft.</p></div></article>
+                    <article class="floor-plan-card"><a href="images/projects/brigade-autograph/4-5bhk-maid-unit-plan.png" target="_blank" rel="noopener"><img src="images/projects/brigade-autograph/4-5bhk-maid-unit-plan.png" alt="Brigade Autograph 4.5 BHK maid room floor plan"></a><div><h3>4 BHK + Maid Room</h3><p>Approx. SBA: 2,760 Sq.Ft.</p></div></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEVELOPER INFORMATION -->
+
+<section class="project-extra-section">
+
+    <div class="container">
+
+        <div class="project-section-intro">
+            <p class="section-subtitle">The Developer</p>
+            <h2>Developer Information</h2>
+        </div>
+
+        <div class="developer-information-card">
+
+            <img
+                src="images/builders/brigade.png"
+                alt="Brigade Group Logo"
+            >
+
+            <div class="developer-information-content">
+
+                <h3>Brigade Group</h3>
+
+                <p>
+                    Established in 1986, Brigade Group is one of
+                    India's leading property developers, headquartered
+                    in Bengaluru. With a diverse portfolio spanning
+                    residential, commercial, retail, hospitality and
+                    education sectors, Brigade is known for creating
+                    landmark developments across India, backed by
+                    its core values of innovation, quality and trust.
+                </p>
+
+                <div class="developer-stats">
+
+                    <div class="developer-stat">
+                        <h4>1986</h4>
+                        <p>Year Established</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>100+ Mn</h4>
+                        <p>Sq. Ft. Delivered</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>200+</h4>
+                        <p>Buildings</p>
+                    </div>
+
+                    <div class="developer-stat">
+                        <h4>9</h4>
+                        <p>Cities</p>
+                    </div>
+
+                </div>
+
+               
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+        <section class="project-enquiry-section" id="enquire">
+            <div class="container">
+                <h2>Interested in Brigade Autograph?</h2>
+                <p>Connect with SM Properties for the latest price sheet, floor plans, availability and site-visit assistance.</p>
+                <div class="project-enquiry-buttons">
+                    <a href="#enquire" class="primary-button">Enquire Now</a>
+                    <a href="https://wa.me/918618633659?text=Hi%2C%20I%20am%20interested%20in%20Brigade%20Autograph%2C%20Whitefield." target="_blank" rel="noopener" class="secondary">Enquire on WhatsApp</a>
+                    <a href="tel:+918618633659" class="secondary">Call SM Properties</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.jpg" alt="SM Properties" class="footer-logo">
+                    <p>Turning Dreams Into Addresses. Helping you discover the right property with confidence.</p>
+                </div>
+                <div class="footer-column"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About Us</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+                <div class="footer-column"><h4>Contact</h4><a href="tel:+918618633659">+91 86186 33659</a><a href="mailto:smproperties96@gmail.com">smproperties96@gmail.com</a><a href="https://wa.me/918618633659" target="_blank" rel="noopener">WhatsApp Us</a></div>
+                <div class="footer-column"><h4>Office Address</h4><p>Anugraha, No. 60C, 1st Floor, 80 Feet Road, Opp. Axis Bank, ITI Employees Layout, Mallathahalli, Bengaluru, Karnataka 560056.</p></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><div class="container footer-bottom-container"><p>© 2026 SM Properties. All Rights Reserved.</p><div class="footer-legal"><a href="contact.html">Contact Us</a></div></div></div>
+    </footer>
+
+    <a href="https://wa.me/918618633659?text=Hi%2C%20I%20am%20interested%20in%20Brigade%20Autograph%2C%20Whitefield." class="floating-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+    <script src="js/script.js"></script>
+</body>
+</html>
